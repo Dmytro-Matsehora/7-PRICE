@@ -1,0 +1,71 @@
+<div class="filters">
+  <div class="form-check form-check-inline">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="GenderCheckbox"
+      value="option1"
+      [(ngModel)]="GenderChecked"
+      (change)="saveToLocalStorage()"
+      (click)="sendGenderEvent()"
+      checked
+    >
+    <label class="form-check-label" for="GenderCheckbox">Gender</label>
+  </div>
+
+  <div class="form-check form-check-inline">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="CityCheckbox"
+      value="option2"
+      [(ngModel)]="CityChecked"
+      (change)="saveToLocalStorage()"
+      (click)="sendCityEvent()"
+      checked
+    >
+    <label class="form-check-label" for="CityCheckbox">City</label>
+  </div>
+
+  <div class="form-check form-check-inline">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="StreetCheckbox"
+      value="option3"
+      [(ngModel)]="StreetChecked"
+      (change)="saveToLocalStorage()"
+      (click)="sendStreetEvent()"
+      checked
+    >
+    <label class="form-check-label" for="StreetCheckbox">Street</label>
+  </div>
+
+  <div class="form-check form-check-inline">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="EmailCheckbox"
+      value="option4"
+      [(ngModel)]="EmailChecked"
+      (change)="saveToLocalStorage()"
+      (click)="sendEmailEvent()"
+      checked
+    >
+    <label class="form-check-label" for="EmailCheckbox">Email</label>
+  </div>
+
+  <div class="form-check form-check-inline">
+    <input
+      class="form-check-input"
+      type="checkbox"
+      id="PhoneCheckbox"
+      value="option5"
+      [(ngModel)]="PhoneChecked"
+      (change)="saveToLocalStorage()"
+      (click)="sendPhoneEvent()"
+      checked
+    >
+    <label class="form-check-label" for="PhoneCheckbox">Phone</label>
+  </div>
+</div>

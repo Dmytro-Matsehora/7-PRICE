@@ -1,0 +1,26 @@
+.dx-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-container {
+  margin: 20px 0 40px 0;
+  width: 100%;
+}
+
+.about-text {
+  margin-top: 30px;
+}
+
+.logo {
+  background-image: url(../../../assets/matrix141.jpg);
+  width: 744px;
+  height: 406px;
+
+  @media screen and (max-width: 750px) {
+    background-image: url(../../../assets/angular.png);
+    width: 250px;
+    height: 250px;
+  }
+}

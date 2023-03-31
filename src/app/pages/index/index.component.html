@@ -1,0 +1,68 @@
+<app-filter
+  [dataSource]="dataSource"
+  (genderEvent)="handleGenderEvent($event)"
+  (phoneEvent)="handlePhoneEvent($event)"
+  (cityEvent)="handleCityEvent($event)"
+  (streetEvent)="handleStreetEvent($event)"
+  (emailEvent)="handleEmailEvent($event)"
+>
+</app-filter>
+
+<dx-data-grid
+  [dataSource]="dataSource"
+  [showBorders]="true"
+  [focusedRowEnabled]="true"
+  [focusedRowIndex]="0"
+  [columnAutoWidth]="true"
+  [columnHidingEnabled]="true"
+  keyExpr="id"
+>
+  <dxo-header-filter [visible]="true"></dxo-header-filter>
+  <dxo-paging [pageSize]="25"></dxo-paging>
+  <dxo-filter-row [visible]="true"></dxo-filter-row>
+
+  <dxo-master-detail
+    [enabled]="masterDetail()"
+    [autoExpandAll]="false"
+    [template]="'detail'"
+  >
+  </dxo-master-detail>
+
+  <div *dxTemplate="let person of 'detail'">
+    <ul class="list-group personInfo">
+      <li class="personCity list-group-item" *ngIf="CityVisible">
+        <b>City:</b> &nbsp;&nbsp; {{person.data.city}}
+      </li>
+
+      <li class="personStreet list-group-item" *ngIf="StreetVisible">
+        <b>Street:</b> &nbsp;&nbsp; {{person.data.street}}
+      </li>
+
+      <li class="personEmail list-group-item" *ngIf="EmailVisible">
+        <b>Email:</b> &nbsp;&nbsp; {{person.data.email}}
+      </li>
+    </ul>
+  </div>
+
+  <dxi-column dataField="id" caption="№" width="80" alignment="left"></dxi-column>
+
+  <dxi-column
+    dataField="picture"
+    caption="Picture"
+    cellTemplate="cellTemplate"
+    [allowFiltering]="false"
+    [allowSorting]="false"
+  >
+  </dxi-column>
+
+  <div *dxTemplate="let data of 'cellTemplate'">
+    <img [src]="data.value" />
+  </div>
+
+  <dxi-column dataField="name" caption="Name"></dxi-column>
+  <dxi-column dataField="gender" caption="Gender" [(visible)]="GenderVisible"></dxi-column>
+  <dxi-column dataField="phone" caption="Phone" [(visible)]="PhoneVisible"></dxi-column>
+</dx-data-grid>
+
+<router-outlet></router-outlet>
+
